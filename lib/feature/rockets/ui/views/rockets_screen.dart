@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:spacex/core/widgets/custom_app_bar.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rockets_screen_body.dart';
 
 class RocketScreen extends StatelessWidget {
@@ -7,6 +9,7 @@ class RocketScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: CustomAppBar(),
       body: RocketsScreenBody(),
     );
   }
