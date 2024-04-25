@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spacex/core/di/service_locator.dart';
 import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/core/theming/styles.dart';
-import 'package:spacex/feature/layout/logic/layout_cubit.dart';
-import 'package:spacex/feature/layout/ui/views/layout_screan.dart';
+import 'package:spacex/feature/dragons/ui/views/dragon_screen_details.dart';
+
+import '../../feature/layout/logic/layout_cubit.dart';
+import '../../feature/layout/ui/views/layout_screan.dart';
+import '../di/service_locator.dart';
 
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -13,9 +15,16 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) {
             return BlocProvider(
-                create: (context) => serviceLocator.get<LayoutCubit>(),
+              create: (context) => serviceLocator.get<LayoutCubit>(),
               child: const LayoutScreen(),
             );
+          },
+        );
+
+      case Routes.dragonDetails:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const DragonDetailsScreen();
           },
         );
 

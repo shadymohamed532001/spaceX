@@ -101,10 +101,34 @@ packages:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
+      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.8"
+  dartz:
+    dependency: "direct main"
+    description:
+      name: dartz
+      sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.10.1"
+  device_frame:
+    dependency: transitive
+    description:
+      name: device_frame
+      sha256: afe76182aec178d171953d9b4a50a43c57c7cf3c77d8b09a48bf30c8fa04dd9d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
+  device_preview:
+    dependency: "direct main"
+    description:
+      name: device_preview
+      sha256: "2f097bf31b929e15e6756dbe0ec1bcb63952ab9ed51c25dc5a2c722d2b21fdaf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   dio:
     dependency: "direct main"
     description:
@@ -166,6 +190,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_native_splash:
     dependency: "direct main"
     description:
@@ -182,6 +211,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.0"
+  flutter_svg:
+    dependency: "direct main"
+    description:
+      name: flutter_svg
+      sha256: "7b4ca6cf3304575fe9c8ec64813c8d02ee41d2afe60bcfe0678bcb5375d596a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.10+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -192,6 +229,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      sha256: c3fd9336eb55a38cc1bbd79ab17573113a8deccd0ecbbf926cca3c62803b5c2d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   get_it:
     dependency: "direct main"
     description:
@@ -208,6 +253,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.4"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   http_parser:
     dependency: transitive
     description:
@@ -232,6 +285,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.7"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   js:
     dependency: transitive
     description:
@@ -240,6 +301,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.1"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.8.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -312,6 +381,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      sha256: e3e67b1629e6f7e8100b367d3db6ba6af4b1f0bb80f64db18ef1fbabd2fa9ccf
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   path_provider_linux:
     dependency: transitive
     description:
@@ -364,10 +441,10 @@ packages:
     dependency: transitive
     description:
       name: pointycastle
-      sha256: "70fe966348fe08c34bf929582f1d8247d9d9408130723206472b4687227e4333"
+      sha256: "79fbafed02cfdbe85ef3fd06c7f4bc2cbcba0177e61b765264853d4253b21744"
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.0"
+    version: "3.9.0"
   provider:
     dependency: transitive
     description:
@@ -501,6 +578,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.2"
+  vector_graphics:
+    dependency: transitive
+    description:
+      name: vector_graphics
+      sha256: "32c3c684e02f9bc0afb0ae0aa653337a2fe022e8ab064bcd7ffda27a74e288e3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.11+1"
+  vector_graphics_codec:
+    dependency: transitive
+    description:
+      name: vector_graphics_codec
+      sha256: c86987475f162fadff579e7320c7ddda04cd2fdeffbe1129227a85d9ac9e03da
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.11+1"
+  vector_graphics_compiler:
+    dependency: transitive
+    description:
+      name: vector_graphics_compiler
+      sha256: "12faff3f73b1741a36ca7e31b292ddeb629af819ca9efe9953b70bd63fc8cd81"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.11+1"
   vector_math:
     dependency: transitive
     description:

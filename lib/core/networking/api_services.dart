@@ -8,11 +8,10 @@ class ApiServices {
     _dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        receiveDataWhenStatusError: true,
+        receiveDataWhenStatusError: false,
       ),
     );
   }
-
 
   static Future<Response> put({
     required String url,
@@ -114,13 +113,13 @@ class ApiServices {
     return response.data;
   }
 
-  static Future<Map<String, dynamic>> getData({
+  static Future getData({
     required String endpoint,
     Map<String, String>? data,
     String? token,
     Map<String, dynamic>? queryParameters,
   }) async {
-    _dio!.options.headers = {
+    _dio?.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': 'Bearer $token',
@@ -154,3 +153,19 @@ class ApiService {
     return response;
   }
 }
+
+//
+// import 'package:dio/dio.dart';
+//
+// class ApiService {
+//   final baseUrl = "https://api.spacexdata.com/v4/";
+//   final Dio dio;
+//
+//   ApiService(this.dio);
+//
+//   Future get({required String endPoint}) async {
+//     var response = await dio.get("$baseUrl$endPoint");
+//
+//     return response.data;
+//   }
+// }
