@@ -5,6 +5,7 @@ import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 abstract class RocketRepo {
   Future<Either<Failure, List<RocketModel>>> getRockets();
   Future<Either<Failure, bool>> saveRocketsToLocalDatabase(
-      List<RocketModel> rockets);
+    List<RocketModel> rockets,
+  );
   Future<Either<Failure, List<RocketModel>>> getRocketsFormLocalDatabase();
 }
