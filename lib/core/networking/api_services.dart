@@ -13,22 +13,19 @@ class ApiServices {
     );
   }
 
-
   static Future<Response> put({
     required String url,
-    required Map<String, dynamic> body,
+    required FormData body, // Change to FormData
     required String token,
     Map<String, String>? headers,
-    String contentType = 'application/json',
   }) async {
     // Set the headers for the request
     _dio?.options.headers = {
-      'Content-Type': contentType,
+      'Content-Type': 'multipart/form-data',
       'Authorization': 'Bearer $token',
       ...?headers,
     };
 
-    // Make the PUT request and return the response
     Response response = await _dio!.put(
       url,
       data: body,
@@ -37,12 +34,13 @@ class ApiServices {
     return response;
   }
 
-  static Future<Response> post(
-      {required body,
-      required String url,
-      required String token,
-      Map<String, String>? headers,
-      String? contentType}) async {
+  static Future<Response> post({
+    required body,
+    required String url,
+    required String token,
+    Map<String, String>? headers,
+    String? contentType,
+  }) async {
     var response = await _dio!.post(url,
         data: body,
         options: Options(
@@ -53,43 +51,13 @@ class ApiServices {
     return response.data;
   }
 
-  static Future<Map<String, dynamic>> postData(
-      {required String endpoint,
-      required Object? data,
-      String? token,
-      Options? options}) async {
-    _dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'application/json',
-    };
-    var response = await _dio!.post(endpoint, data: data, options: options);
-    return response.data;
-  }
-
-  static Future<Map<String, dynamic>> postFormData({
+  static Future deletData({
     required String endpoint,
     required FormData formData,
     String? token,
   }) async {
     _dio?.options.headers = {
       'Authorization': 'Bearer $token',
-      'Content-Type': 'multipart/form-data',
-    };
-    var response = await _dio!.post(
-      endpoint,
-      data: formData,
-    );
-    return response.data;
-  }
-
-  static Future<Map<String, dynamic>> deletFormData({
-    required String endpoint,
-    required FormData formData,
-    String? token,
-  }) async {
-    _dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'multipart/form-data',
     };
     var response = await _dio!.delete(
       endpoint,
@@ -98,23 +66,7 @@ class ApiServices {
     return response.data;
   }
 
-  static Future<Map<String, dynamic>> getFormData({
-    required String endpoint,
-    required FormData formData,
-    String? token,
-  }) async {
-    _dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'multipart/form-data',
-    };
-    var response = await _dio!.get(
-      endpoint,
-      data: formData,
-    );
-    return response.data;
-  }
-
-  static Future<Map<String, dynamic>> getData({
+  static Future getData({
     required String endpoint,
     Map<String, String>? data,
     String? token,
@@ -132,25 +84,5 @@ class ApiServices {
       data: data,
     );
     return response.data;
-  }
-}
-
-class ApiService {
-  final Dio dio = Dio();
-
-  Future<Response> post(
-      {required body,
-      required String url,
-      required String token,
-      Map<String, String>? headers,
-      String? contentType}) async {
-    var response = await dio.post(url,
-        data: body,
-        options: Options(
-          contentType: contentType,
-          headers: headers ?? {'Authorization': "Bearer $token"},
-        ));
-
-    return response;
   }
 }
