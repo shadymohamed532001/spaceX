@@ -21,23 +21,45 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 16.w,
-        right: 16.w,
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const RocketLauncherItem();
-              },
+    return BlocBuilder<RocketsCubit, RocketsState>(
+      builder: (context, state) {
+        if (state is RocketsLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (state is RocketsError) {
+          return Center(
+            child: Text(state.error),
+          );
+        }
+        if (state is RocketsSuccess) {
+          return Padding(
+            padding: EdgeInsets.only(
+              left: 16.w,
+              right: 16.w,
             ),
-          ),
-        ],
-      ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: state.rockets.length,
+                    itemBuilder: (context, index) {
+                      return RocketLauncherItem(
+                        rocketModel: state.rockets[index],
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+        } else {
+          return const Center(
+            child: Text('Something went wrong'),
+          );
+        }
+      },
     );
   }
 }

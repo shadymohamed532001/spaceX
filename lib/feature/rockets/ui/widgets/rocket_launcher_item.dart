@@ -5,11 +5,14 @@ import 'package:spacex/core/helpers/spacing.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/image_assets.dart';
 import 'package:spacex/core/theming/styles.dart';
+import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 
 class RocketLauncherItem extends StatelessWidget {
   const RocketLauncherItem({
     super.key,
+    required this.rocketModel,
   });
+  final RocketModel rocketModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +35,12 @@ class RocketLauncherItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Falcon 1',
+                    rocketModel.name,
                     style: AppStyle.font18Whitesemibold,
                   ),
                   verticalSpacing(2),
                   Text(
-                    'Feb 06, 2006',
+                    rocketModel.firstflight,
                     style: AppStyle.font15Greysemibold,
                   ),
                 ],
@@ -45,7 +48,9 @@ class RocketLauncherItem extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: 16.w),
                 child: Image.asset(
-                  ImagesAssetsManager.rocketNotLauncher,
+                  rocketModel.active
+                      ? ImagesAssetsManager.rocketLauncher
+                      : ImagesAssetsManager.rocketNotLauncher,
                   width: 30.w,
                   height: 35.h,
                 ),
