@@ -18,11 +18,6 @@ class RocketsCubit extends Cubit<RocketsState> {
         );
       },
       (rockets) {
-        print(rockets[0].firstStage.engines);
-        print(rockets[0].diameter.meters);
-        print(rockets[0].secondStage.burnTimeSec);
-        print(rockets[0].height.meters);
-        print(rockets[0].diameter.feet);
         emit(RocketsSuccess(rockets: rockets));
       },
     );

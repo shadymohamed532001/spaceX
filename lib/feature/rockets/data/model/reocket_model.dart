@@ -4,8 +4,20 @@ class RocketModel {
   final RocketFirstStage firstStage;
   final RocketSecondStage secondStage;
   final List<String> flickrImages;
+  final String name;
+  final bool active;
+  final String firstflight;
+  final String country;
+  final String company;
+  final String description;
 
   RocketModel({
+    required this.name,
+    required this.active,
+    required this.firstflight,
+    required this.country,
+    required this.company,
+    required this.description,
     required this.height,
     required this.diameter,
     required this.firstStage,
@@ -15,6 +27,12 @@ class RocketModel {
 
   factory RocketModel.fromJson(Map<String, dynamic> json) {
     return RocketModel(
+      name: json['name'],
+      active: json['active'],
+      firstflight: json['first_flight'],
+      country: json['country'],
+      company: json['company'],
+      description: json['description'],
       height: RocketHeight.fromJson(json['height']),
       diameter: RocketDiameter.fromJson(json['diameter']),
       firstStage: RocketFirstStage.fromJson(json['first_stage']),
@@ -92,7 +110,7 @@ class RocketSecondStage {
     return RocketSecondStage(
       reusable: json['reusable'],
       engines: json['engines'] ?? 0,
-      fuelAmountTons: json['fuel_amount_tons'].toDouble() ?? 0, 
+      fuelAmountTons: json['fuel_amount_tons'].toDouble() ?? 0,
       burnTimeSec: json['burn_time_sec'] ?? 0,
     );
   }
