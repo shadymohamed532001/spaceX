@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/core/theming/styles.dart';
+import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
 import 'package:spacex/feature/dragons/ui/views/dragon_screen_details.dart';
 
 import '../../feature/layout/logic/layout_cubit.dart';
@@ -22,9 +23,10 @@ class AppRoutes {
         );
 
       case Routes.dragonDetails:
+        final args = routeSettings.arguments as DragonModel;
         return MaterialPageRoute(
           builder: (context) {
-            return const DragonDetailsScreen();
+            return DragonDetailsScreen(dragonModel: args);
           },
         );
 

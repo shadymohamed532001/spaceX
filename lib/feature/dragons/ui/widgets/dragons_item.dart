@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
 import 'package:spacex/core/theming/styles.dart';
 
 import '../../data/models/DragonModel.dart';
@@ -14,7 +15,7 @@ class DragonsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "/dragonDetails");
+        context.navigateTo(routeName: '/dragonDetails', arguments: dragons);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 35.w, vertical: 7.h),
@@ -32,7 +33,9 @@ class DragonsItem extends StatelessWidget {
                   height: 150.h,
                   width: 150.w,
                   child: Image(
-                      image: NetworkImage(dragons!.flickrImages?[0] ?? "")),
+                      image: NetworkImage(index == 0
+                          ? dragons!.flickrImages![1]
+                          : dragons!.flickrImages?[0] ?? "")),
                 ),
               ),
               SizedBox(

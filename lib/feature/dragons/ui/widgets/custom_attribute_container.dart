@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/styles.dart';
 
 class CustomAttributesContainer extends StatelessWidget {
-  const CustomAttributesContainer({super.key});
+  const CustomAttributesContainer(
+      {super.key, required this.value, required this.valueKey});
+  final String value;
+  final String valueKey;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +26,16 @@ class CustomAttributesContainer extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "229.6",
+                valueKey,
                 style: AppStyle.font16WhiteSemiBold,
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                "Height,ft",
+                value,
                 style: AppStyle.font16WhiteSemiBold
-                    .copyWith(color: Colors.white54),
+                    .copyWith(color: Colors.white54, fontSize: 14),
               )
             ],
           ),

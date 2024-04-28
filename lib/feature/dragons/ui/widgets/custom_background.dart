@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/colors.dart';
-import 'package:spacex/core/theming/image_assets.dart';
+
+import '../../data/models/DragonModel.dart';
 
 class CustomBackground extends StatelessWidget {
   const CustomBackground({
     super.key,
     required this.widget,
+    required this.dragonModel,
   });
 
   final Widget widget;
+  final DragonModel dragonModel;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +26,10 @@ class CustomBackground extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    const Image(
-                      image: AssetImage(Assets.dragonTest),
+                    Image(
+                      image: NetworkImage(dragonModel.name!.contains("1")
+                          ? dragonModel.flickrImages![1]
+                          : dragonModel.flickrImages![0]),
                       width: double.infinity,
                     ),
                     Padding(
@@ -56,48 +62,3 @@ class CustomBackground extends StatelessWidget {
     );
   }
 }
-
-//Padding(
-//                 padding: const EdgeInsets.only(top: 80),
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Stack(
-//                       children: [
-//                         Container(
-//                           width: double.infinity,
-//                           decoration: const ShapeDecoration(
-//                               color: AppColor.white,
-//                               shape: RoundedRectangleBorder(
-//                                   borderRadius: BorderRadius.only(
-//                                       topLeft: Radius.circular(30),
-//                                       topRight: Radius.circular(30)))),
-//                           child: const Stack(
-//                             clipBehavior: Clip.none,
-//                             children: [
-//                               DoctorAboutHeader(),
-//                               Padding(
-//                                 padding: EdgeInsets.only(
-//                                     left: 30.0, right: 30, top: 73),
-//                                 child: SingleChildScrollView(
-//                                   physics: BouncingScrollPhysics(),
-//                                   child: Column(
-//                                     crossAxisAlignment:
-//                                     CrossAxisAlignment.start,
-//                                     children: [
-//                                       AboutDoctorSection(),
-//                                       ComplaintDoctorSection(),
-//                                       RateOverallSection(),
-//                                       PatientReviewsSection()
-//                                     ],
-//                                   ),
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ],
-//                 ),
-//               )

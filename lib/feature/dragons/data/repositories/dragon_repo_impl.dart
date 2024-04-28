@@ -30,9 +30,4 @@ class DragonRepoImpl extends DragonRepo {
       );
     }
   }
-
-  @override
-  Future<Either<Failure, List<DragonModel>>> fetchDragonsItemsDate() {
-    throw UnimplementedError();
-  }
 }
