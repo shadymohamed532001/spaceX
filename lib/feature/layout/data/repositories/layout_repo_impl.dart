@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/feature/dragons/ui/views/dragons_screen.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
@@ -34,14 +33,12 @@ class LayoutRepoImpl extends LayOutRepo {
       BottomNavigationBarItem(
         icon: Icon(
           Icons.rocket_launch,
-          color: ColorManger.blackColor,
         ),
         label: 'Lunches',
       ),
       BottomNavigationBarItem(
         icon: Icon(
           Icons.rocket,
-          color: ColorManger.blackColor,
         ),
         label: 'Rockets',
       ),
@@ -49,7 +46,6 @@ class LayoutRepoImpl extends LayOutRepo {
         label: 'Dragons',
         icon: Icon(
           Icons.dangerous,
-          color: ColorManger.blackColor,
         ),
       ),
     ];

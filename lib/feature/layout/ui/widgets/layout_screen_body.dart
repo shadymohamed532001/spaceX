@@ -12,7 +12,6 @@ class LayoutScreenBody extends StatelessWidget {
     return BlocBuilder<LayoutCubit, LayoutState>(
       builder: (context, state) {
         LayoutCubit cubit = LayoutCubit.getObject(context);
-
         return WillPopScope(
           onWillPop: () {
             if (cubit.currentIndex != 0) {

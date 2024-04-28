@@ -13,7 +13,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) {
             return BlocProvider(
-                create: (context) => serviceLocator.get<LayoutCubit>(),
+              create: (context) => serviceLocator.get<LayoutCubit>(),
               child: const LayoutScreen(),
             );
           },

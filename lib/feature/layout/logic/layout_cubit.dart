@@ -1,10 +1,9 @@
-
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
+import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
 part 'layout_state.dart';
 
 class LayoutCubit extends Cubit<LayoutState> {
@@ -15,7 +14,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   static LayoutCubit getObject(context) =>
       BlocProvider.of<LayoutCubit>(context);
 
-  int currentIndex = 2;
+  int currentIndex = 1;
 
   List<Widget> getBody() {
     return layOutRepo.getBody();
@@ -34,18 +33,13 @@ class LayoutCubit extends Cubit<LayoutState> {
       ),
     );
 
-    if (currentIndex == 0) {
-    
-    }
+    if (currentIndex == 0) {}
 
     if (currentIndex == 1) {
-  
+      BlocProvider.of<RocketsCubit>(context).getRockets();
     }
-    if (currentIndex == 3) {
-
-    }
-    if (currentIndex == 4) {
-    }
+    if (currentIndex == 3) {}
+    if (currentIndex == 4) {}
     emit(ChangeBottomNavState(index: index));
   }
 
