@@ -40,6 +40,7 @@ dependencies:
   get_it: ^7.7.0
   iconsax: ^0.0.8
   shared_preferences: ^2.2.3
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
