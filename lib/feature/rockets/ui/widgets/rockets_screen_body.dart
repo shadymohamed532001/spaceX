@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
+import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rocket_launcher_item.dart';
 
@@ -47,6 +48,10 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
                     itemBuilder: (context, index) {
                       return RocketLauncherItem(
                         rocketModel: state.rockets[index],
+                        onTap: () 
+                        {
+                          context.navigateTo(routeName:  Routes.rocketScreenDetailsRoute,arguments: state.rockets[index]);
+                        },
                       );
                     },
                   ),
