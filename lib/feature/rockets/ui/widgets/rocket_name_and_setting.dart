@@ -17,14 +17,14 @@ class RocketNameAndSetting extends StatelessWidget {
       child: Row(
         children: [
           Text(
-         rocketModel.name,
-          style: AppStyle.font18Whitesemibold,
-        ),
-        const Spacer(),
-        const Icon(
-          Icons.settings,
-          size: 28,
-        )
+            rocketModel.name,
+            style: AppStyle.font18Whitesemibold,
+          ),
+          const Spacer(),
+          const Icon(
+            Icons.settings,
+            size: 28,
+          )
         ],
       ),
     );

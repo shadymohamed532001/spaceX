@@ -24,17 +24,18 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
   Widget build(BuildContext context) {
     return BlocBuilder<RocketsCubit, RocketsState>(
       builder: (context, state) {
-        if (state is RocketsLoading) {
+        RocketsCubit cubit = BlocProvider.of<RocketsCubit>(context);
+        if (state is GetRocketsError) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
-        if (state is RocketsError) {
+        if (state is GetRocketsError) {
           return Center(
             child: Text(state.error),
           );
         }
-        if (state is RocketsSuccess) {
+        if (state is GetRocketsSuccess || state is GetRocketsSuccessFromLocal) {
           return Padding(
             padding: EdgeInsets.only(
               left: 16.w,
@@ -44,13 +45,14 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: state.rockets.length,
+                    itemCount: cubit.rocketesresult.length,
                     itemBuilder: (context, index) {
                       return RocketLauncherItem(
-                        rocketModel: state.rockets[index],
-                        onTap: () 
-                        {
-                          context.navigateTo(routeName:  Routes.rocketScreenDetailsRoute,arguments: state.rockets[index]);
+                        rocketModel: cubit.rocketesresult[index],
+                        onTap: () {
+                          context.navigateTo(
+                              routeName: Routes.rocketScreenDetailsRoute,
+                              arguments: cubit.rocketesresult[index]);
                         },
                       );
                     },

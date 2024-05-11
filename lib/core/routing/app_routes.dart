@@ -5,6 +5,8 @@ import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/core/theming/styles.dart';
 import 'package:spacex/feature/layout/logic/layout_cubit.dart';
 import 'package:spacex/feature/layout/ui/views/layout_screan.dart';
+import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
+import 'package:spacex/feature/rockets/ui/views/reocket_screan_details.dart';
 
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -17,6 +19,16 @@ class AppRoutes {
               child: const LayoutScreen(),
             );
           },
+        );
+
+      case Routes.rocketScreenDetailsRoute:
+        return MaterialPageRoute(
+          builder: (context) =>  RocketScreenDetails(
+             rocketModel: routeSettings.arguments as RocketModel,
+                    
+
+          ),
+          
         );
 
       default:
