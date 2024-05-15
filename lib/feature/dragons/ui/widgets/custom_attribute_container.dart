@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:spacex/core/theming/styles.dart';
 
 class CustomAttributesContainer extends StatelessWidget {
@@ -32,10 +33,13 @@ class CustomAttributesContainer extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                value,
-                style: AppStyle.font16WhiteSemiBold
-                    .copyWith(color: Colors.white54, fontSize: 14),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  value,
+                  style: AppStyle.font16WhiteSemiBold
+                      .copyWith(color: Colors.white54, fontSize: 13),
+                ),
               )
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
 import 'package:spacex/core/theming/styles.dart';
@@ -19,7 +20,7 @@ class DragonsItem extends StatelessWidget {
         context.navigateTo(routeName: '/dragonDetails', arguments: dragons);
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 35.w, vertical: 7.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 7.h),
         child: Container(
           height: 120.h,
           width: double.infinity,
@@ -33,49 +34,54 @@ class DragonsItem extends StatelessWidget {
                 child: SizedBox(
                     height: 150.h,
                     width: 150.w,
-                    child: CachedNetworkImage(
-                      imageUrl: index == 0
-                          ? dragons!.flickrImages![1]
-                          : dragons!.flickrImages?[0] ?? "",
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: CachedNetworkImage(
+                        imageUrl: index == 0
+                            ? dragons!.flickrImages![1]
+                            : dragons!.flickrImages?[0] ?? "",
+                      ),
                     )),
               ),
               SizedBox(
-                width: 10.w,
+                width: 15.w,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      " Name : ${dragons!.name ?? ""}",
-                      style: AppStyle.font10WhiteRegular,
-                    ),
-                    SizedBox(
-                      height: 7.h,
-                    ),
-                    Text(
-                      "Crew capacity : ${dragons!.crewCapacity} ",
-                      style: AppStyle.font10WhiteRegular,
-                    ),
-                    SizedBox(
-                      height: 7.h,
-                    ),
-                    Text(
-                      "Thrusters type : ${dragons!.thrusters?[index].type ?? ""} ",
-                      style: AppStyle.font10WhiteRegular,
-                    ),
-                    SizedBox(
-                      height: 7.h,
-                    ),
-                    Text(
-                      "Material : ${dragons!.heatShield?.material ?? ""} ",
-                      style: AppStyle.font10WhiteRegular,
-                    ),
-                    SizedBox(
-                      height: 7.h,
-                    ),
-                  ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        " Name : ${dragons!.name ?? ""}",
+                        style: AppStyle.font10WhiteRegular,
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                      Text(
+                        "Crew capacity : ${dragons!.crewCapacity} ",
+                        style: AppStyle.font10WhiteRegular,
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                      Text(
+                        "Thrusters type : ${dragons!.thrusters?[index].type ?? ""} ",
+                        style: AppStyle.font10WhiteRegular,
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                      Text(
+                        "Material : ${dragons!.heatShield?.material ?? ""} ",
+                        style: AppStyle.font10WhiteRegular,
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

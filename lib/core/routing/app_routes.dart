@@ -8,6 +8,8 @@ import 'package:spacex/feature/dragons/ui/views/dragon_screen_details.dart';
 import '../../feature/layout/logic/layout_cubit.dart';
 import '../../feature/layout/ui/views/layout_screan.dart';
 import '../di/service_locator.dart';
+import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
+import 'package:spacex/feature/rockets/ui/views/reocket_screan_details.dart';
 
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -29,6 +31,15 @@ class AppRoutes {
             return DragonDetailsScreen(dragonModel: args);
           },
         );
+
+      case Routes.rocketScreenDetailsRoute:
+        return MaterialPageRoute(
+          builder: (context) =>  RocketScreenDetails(
+             rocketModel: routeSettings.arguments as RocketModel,
+                    
+          ),
+        );
+        
 
       default:
         return _unFoundRoute();

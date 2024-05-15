@@ -1,15 +1,15 @@
 class RocketModel {
-  final RocketHeight height;
-  final RocketDiameter diameter;
-  final RocketFirstStage firstStage;
-  final RocketSecondStage secondStage;
-  final List<String> flickrImages;
   final String name;
   final bool active;
   final String firstflight;
   final String country;
   final String company;
   final String description;
+  final RocketHeight height;
+  final RocketDiameter diameter;
+  final RocketFirstStage firstStage;
+  final RocketSecondStage secondStage;
+  final List<String> flickrImages;
 
   RocketModel({
     required this.name,
@@ -40,6 +40,22 @@ class RocketModel {
       flickrImages: List<String>.from(json['flickr_images']),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'active': active,
+      'first_flight': firstflight,
+      'country': country,
+      'company': company,
+      'description': description,
+      'height': height.toJson(),
+      'diameter': diameter.toJson(),
+      'first_stage': firstStage.toJson(),
+      'second_stage': secondStage.toJson(),
+      'flickr_images': flickrImages,
+    };
+  }
 }
 
 class RocketHeight {
@@ -54,6 +70,10 @@ class RocketHeight {
       feet: json['feet'].toDouble() ?? 0,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'meters': meters, 'feet': feet};
+  }
 }
 
 class RocketDiameter {
@@ -67,6 +87,10 @@ class RocketDiameter {
       meters: json['meters'].toDouble(),
       feet: json['feet'].toDouble(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'meters': meters, 'feet': feet};
   }
 }
 
@@ -91,6 +115,15 @@ class RocketFirstStage {
       burnTimeSec: json['burn_time_sec'] ?? 0,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'reusable': reusable,
+      'engines': engines,
+      'fuel_amount_tons': fuelAmountTons,
+      'burn_time_sec': burnTimeSec,
+    };
+  }
 }
 
 class RocketSecondStage {
@@ -113,5 +146,14 @@ class RocketSecondStage {
       fuelAmountTons: json['fuel_amount_tons'].toDouble() ?? 0,
       burnTimeSec: json['burn_time_sec'] ?? 0,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'reusable': reusable,
+      'engines': engines,
+      'fuel_amount_tons': fuelAmountTons,
+      'burn_time_sec': burnTimeSec,
+    };
   }
 }

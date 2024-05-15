@@ -11,16 +11,20 @@ class RocketLauncherItem extends StatelessWidget {
   const RocketLauncherItem({
     super.key,
     required this.rocketModel,
+    this.onTap,
   });
   final RocketModel rocketModel;
 
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 15.h),
+        margin: EdgeInsets.only(
+          top: 15.h,
+        ),
         height: 90.h,
         decoration: BoxDecoration(
           color: ColorManger.greyColor.withOpacity(0.2),

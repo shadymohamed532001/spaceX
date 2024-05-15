@@ -32,7 +32,7 @@ class AppStyle {
   // Grey Color Styles
 
   static TextStyle font15Greysemibold = TextStyle(
-    color: ColorManger.greyColor.withOpacity(0.4),
+    color: ColorManger.greyColor.withOpacity(0.6),
     fontSize: 15.sp,
   );
   // Primary Color Styles

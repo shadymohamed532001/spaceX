@@ -33,11 +33,12 @@ class LocalServices {
     return sharedPreferences.remove(key);
   }
 
-  static Future<void> saveModelToLocalDatabase<T>(String key, T model) async {
+
+ static Future<void> saveModelToLocalDatabase<T>(String key, T model) async {
     final jsonData = json.encode(model);
     await sharedPreferences.setString(key, jsonData);
   }
-
+ 
   static Future<List<T>> getModelFromLocalDatabase<T>(
       String key, T Function(Map<String, dynamic>) fromJson) async {
     final jsonString = sharedPreferences.getString(key);
