@@ -18,21 +18,10 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
 # System design
     ├── lib
     │   ├── Feature
-    │   │   ├── onboarding
-    │   │   ├── auth
+    │   │   ├── dragons
     │   │   ├── layout
-    │   │   ├── home
-    │   │   ├── plantClassification
-    │   │   ├── recommendNextCrop
-    │   │   ├── explore
-    │   │   ├── favorites
-    │   │   ├── profile
-    │   │   ├── store
-    │   │   ├── details
-    │   │   ├── checkout
-    │   │   ├── details
-    │   │   ├── ai_Chat
-    │   │   ├── comments
+    │   │   ├── launches
+    │   │   ├── rockets
     │   ├── core
     │   │   ├── Di
     │   │   ├── error
