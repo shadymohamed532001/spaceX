@@ -8,7 +8,8 @@ import 'package:spacex/spacex_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  ServiceLocator().setupServiceLocator();
+  await ServiceLocator().setupServiceLocator();
+
   Bloc.observer = MyBlocObserver();
   ApiServices.init();
   await LocalServices.init();

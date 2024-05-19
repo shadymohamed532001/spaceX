@@ -18,7 +18,7 @@ class ServiceLocator {
   void _setupForRepos() {
     serviceLocator.registerLazySingleton<LayOutRepo>(() => LayoutRepoImpl());
 
-    
+    serviceLocator.registerLazySingleton<RocketRepo>(() => RocketRepoImpl());
   }
 
   void _setupForCubits() {
