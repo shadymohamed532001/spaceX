@@ -59,3 +59,4 @@ class LocalServices {
     return sharedPreferences.remove(key);
   }
 }
+
