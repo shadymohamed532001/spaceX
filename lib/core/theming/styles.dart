@@ -11,28 +11,10 @@ class AppStyle {
     color: Colors.black,
   );
 
-  static TextStyle font20BlackBold = TextStyle(
-    fontSize: 20.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
-  );
-
-  static TextStyle font10WhiteRegular = TextStyle(
-    fontSize: 10.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: Colors.white,
-  );
-
-  static TextStyle font16WhiteSemiBold = TextStyle(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.semibold,
-    color: Colors.white,
-  );
-
   // Grey Color Styles
 
   static TextStyle font15Greysemibold = TextStyle(
-    color: ColorManger.greyColor.withOpacity(0.4),
+    color: ColorManger.greyColor.withOpacity(0.6),
     fontSize: 15.sp,
   );
   // Primary Color Styles
@@ -46,6 +28,12 @@ class AppStyle {
   static TextStyle font18Whitesemibold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.semibold,
+    color: ColorManger.whiteColor,
+  );
+
+  static TextStyle font10WhiteRegular = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
     color: ColorManger.whiteColor,
   );
 }

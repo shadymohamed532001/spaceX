@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
 import 'package:spacex/feature/dragons/ui/widgets/custom_error_widgets.dart';
-
 import 'custom_loading_indicator.dart';
 import 'dragons_item.dart';
 
@@ -22,14 +21,9 @@ class DragonsItemListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemCount: cubit.dragonsLocal.length,
               itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    // Navigator.pushNamed(context, '/dragonDetails');
-                  },
-                  child: DragonsItem(
-                    index: index,
-                    dragons: cubit.dragonsLocal[index],
-                  ),
+                return DragonsItem(
+                  index: index,
+                  dragons: cubit.dragonsLocal[index],
                 );
               });
         } else if (state is GetDragonsErrorState) {

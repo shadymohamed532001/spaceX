@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:spacex/core/helpers/local_services.dart';
 import 'package:spacex/core/networking/api_services.dart';
 import 'package:spacex/core/networking/end_boint.dart';
 import 'package:spacex/core/networking/failuer.dart';
@@ -13,7 +14,8 @@ class RocketRepoImpl implements RocketRepo {
   @override
   Future<Either<Failure, List<RocketModel>>> getRockets() async {
     try {
-      List<dynamic> response = await ApiServices.getData(endpoint: getAllRocketsendpoint);
+      List<dynamic> response =
+          await ApiServices.getData(endpoint: getAllRocketsendpoint);
 
       List<RocketModel> rockets =
           response.map((json) => RocketModel.fromJson(json)).toList();
@@ -25,6 +27,34 @@ class RocketRepoImpl implements RocketRepo {
       } else {
         return left(ServerFailure(e.toString()));
       }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RocketModel>>> saveRocketsToLocalDatabase(
+      List<RocketModel> dragons) async {
+    try {
+      await LocalServices.saveModelToLocalDatabase('rockets', dragons);
+      return Right(dragons);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioException(e));
+      } else {
+        return Left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RocketModel>>>
+      getRocketsFormLocalDatabase() async {
+    try {
+      List<RocketModel> dragons =
+          await LocalServices.getModelFromLocalDatabase<RocketModel>(
+              'rockets', (data) => RocketModel.fromJson(data));
+      return Right(dragons);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

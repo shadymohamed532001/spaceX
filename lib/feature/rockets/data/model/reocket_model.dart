@@ -1,4 +1,10 @@
 class RocketModel {
+  final String name;
+  final bool active;
+  final String firstflight;
+  final String country;
+  final String company;
+  final String description;
   final RocketHeight height;
   final RocketDiameter diameter;
   final RocketFirstStage firstStage;
@@ -6,6 +12,12 @@ class RocketModel {
   final List<String> flickrImages;
 
   RocketModel({
+    required this.name,
+    required this.active,
+    required this.firstflight,
+    required this.country,
+    required this.company,
+    required this.description,
     required this.height,
     required this.diameter,
     required this.firstStage,
@@ -15,12 +27,34 @@ class RocketModel {
 
   factory RocketModel.fromJson(Map<String, dynamic> json) {
     return RocketModel(
+      name: json['name'],
+      active: json['active'],
+      firstflight: json['first_flight'],
+      country: json['country'],
+      company: json['company'],
+      description: json['description'],
       height: RocketHeight.fromJson(json['height']),
       diameter: RocketDiameter.fromJson(json['diameter']),
       firstStage: RocketFirstStage.fromJson(json['first_stage']),
       secondStage: RocketSecondStage.fromJson(json['second_stage']),
       flickrImages: List<String>.from(json['flickr_images']),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'active': active,
+      'first_flight': firstflight,
+      'country': country,
+      'company': company,
+      'description': description,
+      'height': height.toJson(),
+      'diameter': diameter.toJson(),
+      'first_stage': firstStage.toJson(),
+      'second_stage': secondStage.toJson(),
+      'flickr_images': flickrImages,
+    };
   }
 }
 
@@ -36,6 +70,10 @@ class RocketHeight {
       feet: json['feet'].toDouble() ?? 0,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'meters': meters, 'feet': feet};
+  }
 }
 
 class RocketDiameter {
@@ -49,6 +87,10 @@ class RocketDiameter {
       meters: json['meters'].toDouble(),
       feet: json['feet'].toDouble(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'meters': meters, 'feet': feet};
   }
 }
 
@@ -73,6 +115,15 @@ class RocketFirstStage {
       burnTimeSec: json['burn_time_sec'] ?? 0,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'reusable': reusable,
+      'engines': engines,
+      'fuel_amount_tons': fuelAmountTons,
+      'burn_time_sec': burnTimeSec,
+    };
+  }
 }
 
 class RocketSecondStage {
@@ -92,8 +143,17 @@ class RocketSecondStage {
     return RocketSecondStage(
       reusable: json['reusable'],
       engines: json['engines'] ?? 0,
-      fuelAmountTons: json['fuel_amount_tons'].toDouble() ?? 0, 
+      fuelAmountTons: json['fuel_amount_tons'].toDouble() ?? 0,
       burnTimeSec: json['burn_time_sec'] ?? 0,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'reusable': reusable,
+      'engines': engines,
+      'fuel_amount_tons': fuelAmountTons,
+      'burn_time_sec': burnTimeSec,
+    };
   }
 }

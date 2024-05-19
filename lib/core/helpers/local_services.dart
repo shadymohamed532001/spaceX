@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 
 class LocalServices {
   static late SharedPreferences sharedPreferences;
@@ -8,31 +9,25 @@ class LocalServices {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  static dynamic getData({required String key}) {
-    return sharedPreferences.get(key);
-  }
 
-  static Future<bool> saveData({
+
+  static Future<bool> saveModel({
     required String key,
-    required dynamic value,
+    required  value,
   }) async {
-    if (value is String) return await sharedPreferences.setString(key, value);
-    if (value is int) return await sharedPreferences.setInt(key, value);
-    if (value is bool) return await sharedPreferences.setBool(key, value);
-    if (value is List<Map<String, dynamic>>) {
-      return await sharedPreferences.setString(
-        key,
-        json.encode(value), // Convert List to JSON string
-      );
+    final rocketJson = value.toJson();
+    final rocketString = json.encode(rocketJson);
+    return await sharedPreferences.setString(key, rocketString);
+  }
+
+  static  getModel({required String key}) {
+    final jsonString = sharedPreferences.getString(key);
+    if (jsonString != null) {
+      final rocketJson = json.decode(jsonString);
+      return RocketModel.fromJson(rocketJson);
     }
-
-    return await sharedPreferences.setDouble(key, value);
+    return null;
   }
-
-  static Future<bool> removeData({required String key}) {
-    return sharedPreferences.remove(key);
-  }
-
   static Future<void> saveModelToLocalDatabase<T>(String key, T model) async {
     final jsonData = json.encode(model);
     await sharedPreferences.setString(key, jsonData);
@@ -55,3 +50,4 @@ class LocalServices {
     return sharedPreferences.remove(key);
   }
 }
+

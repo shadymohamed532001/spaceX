@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'dragon_item_list_view.dart';
 
 class DragonsScreenBody extends StatelessWidget {
@@ -12,7 +11,11 @@ class DragonsScreenBody extends StatelessWidget {
     return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [Expanded(child: DragonsItemListView())],
+      children: [
+        Expanded(
+          child: DragonsItemListView(),
+        ),
+      ],
     );
   }
 }

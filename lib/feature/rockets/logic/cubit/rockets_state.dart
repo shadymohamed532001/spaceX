@@ -9,15 +9,45 @@ sealed class RocketsState extends Equatable {
 
 final class RocketsInitial extends RocketsState {}
 
-final class RocketsLoading extends RocketsState {}
+final class GetRocketsLoading extends RocketsState {}
 
-final class RocketsSuccess extends RocketsState {
-  final List<RocketModel> rockets;
-  const RocketsSuccess({required this.rockets});
+final class GetRocketsSuccess extends RocketsState {
+  final List<dynamic> rockets;
+  const GetRocketsSuccess({required this.rockets});
 }
 
-final class RocketsError extends RocketsState {
+final class GetRocketsError extends RocketsState {
   final String error;
 
-  const RocketsError({required this.error});
+  const GetRocketsError({required this.error});
+}
+
+final class GetRocketsSuccessFromLocal extends RocketsState {
+  final List<RocketModel> rockets;
+  const GetRocketsSuccessFromLocal({required this.rockets});
+}
+
+final class SaveRocketDataToLocalLoadingState extends RocketsState {}
+
+final class SaveRocketDataToLocalErrorState extends RocketsState {
+  final String error;
+  const SaveRocketDataToLocalErrorState({required this.error});
+}
+
+final class SaveRocketDataToLocalSuccessState extends RocketsState {
+  final List<RocketModel> rockets;
+  const SaveRocketDataToLocalSuccessState({required this.rockets});
+}
+
+
+final class LoadRocketDataToLocalLoadingState extends RocketsState {}
+
+final class LoadRocketDataToLocalErorrState extends RocketsState {
+  final String error;
+  const LoadRocketDataToLocalErorrState({required this.error});
+}
+
+final class LoadRocketDataToLocalSuccessState extends RocketsState {
+  final List<RocketModel> rockets;
+  const LoadRocketDataToLocalSuccessState({required this.rockets});
 }

@@ -7,24 +7,58 @@ part 'rockets_state.dart';
 
 class RocketsCubit extends Cubit<RocketsState> {
   RocketsCubit({required this.rocketRepo}) : super(RocketsInitial());
+
   final RocketRepo rocketRepo;
-  void getRockets() async {
-    emit(RocketsLoading());
-    final getRocketsEither = await rocketRepo.getRockets();
-    getRocketsEither.fold(
-      (failure) {
-        emit(
-          RocketsError(error: failure.errMessage),
-        );
-      },
-      (rockets) {
-        print(rockets[0].firstStage.engines);
-        print(rockets[0].diameter.meters);
-        print(rockets[0].secondStage.burnTimeSec);
-        print(rockets[0].height.meters);
-        print(rockets[0].diameter.feet);
-        emit(RocketsSuccess(rockets: rockets));
-      },
-    );
+
+  List<RocketModel> rocketsLocal = [];
+  Future<void> saveRocketsDataToLocal(List<RocketModel> rockets) async {
+    emit(SaveRocketDataToLocalLoadingState());
+    var response = await rocketRepo.saveRocketsToLocalDatabase(rockets);
+    response.fold((failure) {
+      emit(SaveRocketDataToLocalErrorState(error: failure.errMessage));
+    }, (rockets) async {
+      emit(SaveRocketDataToLocalSuccessState(rockets: rockets));
+    });
+  }
+
+  Future<List<RocketModel>> loadRocketssDataFromLocal() async {
+    emit(LoadRocketDataToLocalLoadingState());
+    var response = await rocketRepo.getRocketsFormLocalDatabase();
+    return response.fold((failure) {
+      emit(LoadRocketDataToLocalErorrState(error: failure.errMessage));
+      return [];
+    }, (rockets) {
+      emit(LoadRocketDataToLocalSuccessState(rockets: rockets));
+      return rockets;
+    });
+  }
+
+
+  Future<void> getRockets() async {
+    emit(GetRocketsLoading());
+    try {
+      final localRocketsData = await loadRocketssDataFromLocal();
+
+      if (localRocketsData.isNotEmpty) {
+        rocketsLocal = localRocketsData;
+        emit(GetRocketsSuccess(
+          rockets: rocketsLocal,
+        ));
+      } else {
+        var response = await rocketRepo.getRockets();
+
+        response.fold((failure) {
+          emit(GetRocketsError(
+            error: failure.errMessage,
+          ));
+        }, (rockets) async {
+          rocketsLocal = rockets;
+          await saveRocketsDataToLocal(rockets);
+          emit(GetRocketsSuccess(rockets: rockets));
+        });
+      }
+    } catch (e) {
+      emit(GetRocketsError(error: e.toString()));
+    }
   }
 }

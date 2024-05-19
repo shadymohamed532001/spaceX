@@ -13,9 +13,9 @@ class DragonsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: ColorManger.whiteColor,
-        title: Text(
+        title: Text( 
           "Dragons",
-          style: AppStyle.font16WhiteSemiBold,
+          style: AppStyle.font14Whitesemibold,
         ),
       ),
       body: const DragonsScreenBody(),

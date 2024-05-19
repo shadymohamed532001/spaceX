@@ -17,7 +17,6 @@ class GetDragonsCubit extends Cubit<GetDragonsState> {
     var response = await dragonRepo.saveDragonsToLocalDatabase(dragonsLocal);
     response.fold((failure) {
       emit(SaveDragonDataToLocalErrorState(error: failure.errMessage));
-      // print(failure.errMessage);
     }, (dragons) async {
       emit(SaveDragonDataToLocalSuccessState(dragons: dragons));
     });

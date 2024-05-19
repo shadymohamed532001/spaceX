@@ -25,7 +25,7 @@ class DragonDetailsScreen extends StatelessWidget {
             children: [
               Text(
                 dragonModel.name ?? "",
-                style: AppStyle.font20BlackBold
+                style: AppStyle.font14Blacksemibold
                     .copyWith(color: ColorManger.whiteColor),
               ),
               const SizedBox(

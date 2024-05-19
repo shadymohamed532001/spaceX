@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   dio: ^5.4.3+1
@@ -40,8 +41,6 @@ dependencies:
   get_it: ^7.7.0
   iconsax: ^0.0.8
   shared_preferences: ^2.2.3
-  flutter_svg: ^2.0.10+1
-  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0

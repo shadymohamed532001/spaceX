@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
+import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rocket_launcher_item.dart';
 
@@ -21,23 +22,51 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 16.w,
-        right: 16.w,
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const RocketLauncherItem();
-              },
+    return BlocBuilder<RocketsCubit, RocketsState>(
+      builder: (context, state) {
+        RocketsCubit cubit = BlocProvider.of<RocketsCubit>(context);
+        if (state is GetRocketsError) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (state is GetRocketsError) {
+          return Center(
+            child: Text(state.error),
+          );
+        }
+        if (state is GetRocketsSuccess || state is GetRocketsSuccessFromLocal) {
+          return Padding(
+            padding: EdgeInsets.only(
+              left: 16.w,
+              right: 16.w,
             ),
-          ),
-        ],
-      ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cubit.rocketsLocal.length,
+                    itemBuilder: (context, index) {
+                      return RocketLauncherItem(
+                        rocketModel: cubit.rocketsLocal[index],
+                        onTap: () {
+                          context.navigateTo(
+                              routeName: Routes.rocketScreenDetailsRoute,
+                              arguments: cubit.rocketsLocal[index]);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+        } else {
+          return const Center(
+            child: Text('Something went wrong'),
+          );
+        }
+      },
     );
   }
 }

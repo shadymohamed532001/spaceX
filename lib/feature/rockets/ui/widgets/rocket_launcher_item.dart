@@ -5,19 +5,26 @@ import 'package:spacex/core/helpers/spacing.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/image_assets.dart';
 import 'package:spacex/core/theming/styles.dart';
+import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 
 class RocketLauncherItem extends StatelessWidget {
   const RocketLauncherItem({
     super.key,
+    required this.rocketModel,
+    this.onTap,
   });
+  final RocketModel rocketModel;
 
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 15.h),
+        margin: EdgeInsets.only(
+          top: 15.h,
+        ),
         height: 90.h,
         decoration: BoxDecoration(
           color: ColorManger.greyColor.withOpacity(0.2),
@@ -32,12 +39,12 @@ class RocketLauncherItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Falcon 1',
+                    rocketModel.name,
                     style: AppStyle.font18Whitesemibold,
                   ),
                   verticalSpacing(2),
                   Text(
-                    'Feb 06, 2006',
+                    rocketModel.firstflight,
                     style: AppStyle.font15Greysemibold,
                   ),
                 ],
@@ -45,7 +52,9 @@ class RocketLauncherItem extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: 16.w),
                 child: Image.asset(
-                  ImagesAssetsManager.rocketNotLauncher,
+                  rocketModel.active
+                      ? ImagesAssetsManager.rocketLauncher
+                      : ImagesAssetsManager.rocketNotLauncher,
                   width: 30.w,
                   height: 35.h,
                 ),
