@@ -19,8 +19,6 @@ class LocalServices {
     if (value is String) return await sharedPreferences.setString(key, value);
     if (value is int) return await sharedPreferences.setInt(key, value);
     if (value is bool) return await sharedPreferences.setBool(key, value);
-
-    // Handle List<Map<String, dynamic>> case
     if (value is List<Map<String, dynamic>>) {
       return await sharedPreferences.setString(
         key,
@@ -32,6 +30,28 @@ class LocalServices {
   }
 
   static Future<bool> removeData({required String key}) {
+    return sharedPreferences.remove(key);
+  }
+
+  static Future<void> saveModelToLocalDatabase<T>(String key, T model) async {
+    final jsonData = json.encode(model);
+    await sharedPreferences.setString(key, jsonData);
+  }
+
+  static Future<List<T>> getModelFromLocalDatabase<T>(
+      String key, T Function(Map<String, dynamic>) fromJson) async {
+    final jsonString = sharedPreferences.getString(key);
+    if (jsonString != null) {
+      final jsonData = json.decode(jsonString) as List<dynamic>;
+      final models = jsonData
+          .map((data) => fromJson(data as Map<String, dynamic>))
+          .toList();
+      return models;
+    }
+    return [];
+  }
+
+  static Future<bool> removeModel({required String key}) {
     return sharedPreferences.remove(key);
   }
 }

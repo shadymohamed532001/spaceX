@@ -13,12 +13,14 @@ class DragonsItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetDragonsCubit, GetDragonsState>(
       builder: (context, state) {
+        GetDragonsCubit cubit = BlocProvider.of<GetDragonsCubit>(context);
         if (state is GetDragonsLoadingState) {
           return const CustomLoadingIndicator();
-        } else if (state is GetDragonsSuccessState) {
+        } else if (state is GetDragonsSuccessState ||
+            state is GetDragonsSuccessFromLocal) {
           return ListView.builder(
               physics: const BouncingScrollPhysics(),
-              itemCount: state.dragons.length,
+              itemCount: cubit.dragonsLocal.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
@@ -26,7 +28,7 @@ class DragonsItemListView extends StatelessWidget {
                   },
                   child: DragonsItem(
                     index: index,
-                    dragons: state.dragons[index],
+                    dragons: cubit.dragonsLocal[index],
                   ),
                 );
               });

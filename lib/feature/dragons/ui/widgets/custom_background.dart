@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/colors.dart';
 
@@ -26,10 +27,10 @@ class CustomBackground extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    Image(
-                      image: NetworkImage(dragonModel.name!.contains("1")
+                    CachedNetworkImage(
+                      imageUrl: dragonModel.name!.contains("1")
                           ? dragonModel.flickrImages![1]
-                          : dragonModel.flickrImages![0]),
+                          : dragonModel.flickrImages![0],
                       width: double.infinity,
                     ),
                     Padding(
