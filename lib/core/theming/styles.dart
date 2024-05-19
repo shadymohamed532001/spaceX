@@ -30,4 +30,10 @@ class AppStyle {
     fontWeight: FontWeightHelper.semibold,
     color: ColorManger.whiteColor,
   );
+
+  static TextStyle font10WhiteRegular = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.whiteColor,
+  );
 }

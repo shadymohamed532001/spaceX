@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
@@ -38,8 +39,10 @@ class LayoutCubit extends Cubit<LayoutState> {
     if (currentIndex == 1) {
       BlocProvider.of<RocketsCubit>(context).getRockets();
     }
-    if (currentIndex == 3) {}
-    if (currentIndex == 4) {}
+    if (currentIndex == 2) {
+            BlocProvider.of<GetDragonsCubit>(context).getAllDragons();
+
+    }
     emit(ChangeBottomNavState(index: index));
   }
 
