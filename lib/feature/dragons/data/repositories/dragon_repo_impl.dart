@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:spacex/core/helpers/local_services.dart';
 import 'package:spacex/core/networking/end_boint.dart';
 import 'package:spacex/core/networking/failuer.dart';
 import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
@@ -28,6 +29,34 @@ class DragonRepoImpl extends DragonRepo {
       return left(
         ServerFailure(e.toString()),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<DragonModel>>> saveDragonsToLocalDatabase(
+      List<DragonModel> dragons) async {
+    try {
+      await LocalServices.saveModelToLocalDatabase('dragons', dragons);
+      return Right(dragons);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioException(e));
+      } else {
+        return Left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<DragonModel>>>
+      getDragonsFormLocalDatabase() async {
+    try {
+      List<DragonModel> dragons =
+          await LocalServices.getModelFromLocalDatabase<DragonModel>(
+              'dragons', (data) => DragonModel.fromJson(data));
+      return Right(dragons);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

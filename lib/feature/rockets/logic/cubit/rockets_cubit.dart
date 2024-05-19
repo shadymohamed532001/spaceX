@@ -1,10 +1,7 @@
-import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 import 'package:spacex/feature/rockets/data/repositories/rockets_repo.dart';
-
 
 part 'rockets_state.dart';
 
@@ -13,58 +10,55 @@ class RocketsCubit extends Cubit<RocketsState> {
 
   final RocketRepo rocketRepo;
 
-  List<RocketModel> rocketesresult  = [];
-
-    Future<void> savePlantDataToLocal(List<RocketModel> rockets) async {
-    final prefs = await SharedPreferences.getInstance();
-    final jsonData = rockets.map((plant) => plant.toJson()).toList();
-    prefs.setString('rockets', json.encode(jsonData));
+  List<RocketModel> rocketsLocal = [];
+  Future<void> saveRocketsDataToLocal(List<RocketModel> rockets) async {
+    emit(SaveRocketDataToLocalLoadingState());
+    var response = await rocketRepo.saveRocketsToLocalDatabase(rockets);
+    response.fold((failure) {
+      emit(SaveRocketDataToLocalErrorState(error: failure.errMessage));
+    }, (rockets) async {
+      emit(SaveRocketDataToLocalSuccessState(rockets: rockets));
+    });
   }
 
-   Future<List<RocketModel>> loadRocketssDataFromLocal() async {
-    final prefs = await SharedPreferences.getInstance();
-    final jsonString = prefs.getString('rockets');
-    if (jsonString != null) {
-      final jsonData = json.decode(jsonString);
-      return jsonData
-          .map<RocketModel>((plant) => RocketModel.fromJson(plant))
-          .toList();
-          
-    } else {
+  Future<List<RocketModel>> loadRocketssDataFromLocal() async {
+    emit(LoadRocketDataToLocalLoadingState());
+    var response = await rocketRepo.getRocketsFormLocalDatabase();
+    return response.fold((failure) {
+      emit(LoadRocketDataToLocalErorrState(error: failure.errMessage));
       return [];
-    }
+    }, (rockets) {
+      emit(LoadRocketDataToLocalSuccessState(rockets: rockets));
+      return rockets;
+    });
   }
+
 
   Future<void> getRockets() async {
     emit(GetRocketsLoading());
     try {
-      final localRocketData = await loadRocketssDataFromLocal();
+      final localRocketsData = await loadRocketssDataFromLocal();
 
-      if (localRocketData.isNotEmpty) {
-        rocketesresult = localRocketData;
-      emit(GetRocketsSuccessFromLocal(
-        rockets: rocketesresult,
-      ));
+      if (localRocketsData.isNotEmpty) {
+        rocketsLocal = localRocketsData;
+        emit(GetRocketsSuccess(
+          rockets: rocketsLocal,
+        ));
       } else {
-        final plantEither = await rocketRepo.getRockets();
-        plantEither.fold(
-          (failure) {
-            emit(GetRocketsError(error: failure.errMessage));
-          },
-          (rocktes) async {
-            rocketesresult = rocktes;
-            emit(GetRocketsSuccess(rockets: rocketesresult));
-            await savePlantDataToLocal(rocktes);
-          },
-        );
+        var response = await rocketRepo.getRockets();
+
+        response.fold((failure) {
+          emit(GetRocketsError(
+            error: failure.errMessage,
+          ));
+        }, (rockets) async {
+          rocketsLocal = rockets;
+          await saveRocketsDataToLocal(rockets);
+          emit(GetRocketsSuccess(rockets: rockets));
+        });
       }
     } catch (e) {
       emit(GetRocketsError(error: e.toString()));
     }
   }
-
-
 }
-
-
-  

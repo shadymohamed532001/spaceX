@@ -45,7 +45,7 @@ class LayoutRepoImpl extends LayOutRepo {
       BottomNavigationBarItem(
         label: 'Dragons',
         icon: Icon(
-          Icons.dangerous,
+          Icons.travel_explore,
         ),
       ),
     ];

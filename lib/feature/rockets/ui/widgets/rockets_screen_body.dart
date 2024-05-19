@@ -45,14 +45,14 @@ class _RocketsScreenBodyState extends State<RocketsScreenBody> {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: cubit.rocketesresult.length,
+                    itemCount: cubit.rocketsLocal.length,
                     itemBuilder: (context, index) {
                       return RocketLauncherItem(
-                        rocketModel: cubit.rocketesresult[index],
+                        rocketModel: cubit.rocketsLocal[index],
                         onTap: () {
                           context.navigateTo(
                               routeName: Routes.rocketScreenDetailsRoute,
-                              arguments: cubit.rocketesresult[index]);
+                              arguments: cubit.rocketsLocal[index]);
                         },
                       );
                     },

@@ -6,7 +6,7 @@ import 'package:spacex/core/helpers/local_services.dart';
 import 'package:spacex/core/networking/api_services.dart';
 import 'package:spacex/spacex_app.dart';
 
-void main() async {
+void main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();

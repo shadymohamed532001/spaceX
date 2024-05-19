@@ -22,9 +22,32 @@ final class GetRocketsError extends RocketsState {
   const GetRocketsError({required this.error});
 }
 
-
 final class GetRocketsSuccessFromLocal extends RocketsState {
   final List<RocketModel> rockets;
   const GetRocketsSuccessFromLocal({required this.rockets});
 }
 
+final class SaveRocketDataToLocalLoadingState extends RocketsState {}
+
+final class SaveRocketDataToLocalErrorState extends RocketsState {
+  final String error;
+  const SaveRocketDataToLocalErrorState({required this.error});
+}
+
+final class SaveRocketDataToLocalSuccessState extends RocketsState {
+  final List<RocketModel> rockets;
+  const SaveRocketDataToLocalSuccessState({required this.rockets});
+}
+
+
+final class LoadRocketDataToLocalLoadingState extends RocketsState {}
+
+final class LoadRocketDataToLocalErorrState extends RocketsState {
+  final String error;
+  const LoadRocketDataToLocalErorrState({required this.error});
+}
+
+final class LoadRocketDataToLocalSuccessState extends RocketsState {
+  final List<RocketModel> rockets;
+  const LoadRocketDataToLocalSuccessState({required this.rockets});
+}

@@ -10,21 +10,53 @@ class GetDragonsCubit extends Cubit<GetDragonsState> {
 
   final DragonRepo dragonRepo;
 
-  Future<void> getAllDragons() async {
-    emit(GetDragonsLoadingState());
+  List<DragonModel> dragonsLocal = [];
 
-    var response = await dragonRepo.fetchDragons();
-
+  Future saveDragonDataToLocal(List<DragonModel> dragons) async {
+    emit(SaveDragonDataToLocalLoadingState());
+    var response = await dragonRepo.saveDragonsToLocalDatabase(dragonsLocal);
     response.fold((failure) {
-      emit(GetDragonsErrorState(failure.errMessage));
-    }, (dragons) {
-      print(dragons[0].active);
-      print(dragons[0].crewCapacity);
-      print(dragons[0].dryMassKg);
-      print(dragons[0].heatShield);
-      print(dragons[0].active);
-
-      emit(GetDragonsSuccessState(dragons));
+      emit(SaveDragonDataToLocalErrorState(error: failure.errMessage));
+    }, (dragons) async {
+      emit(SaveDragonDataToLocalSuccessState(dragons: dragons));
     });
+  }
+
+  Future<List<DragonModel>> loadDragonDataFromLocal() async {
+    emit(LoadDragonDataToLocalLoadingState());
+    var response = await dragonRepo.getDragonsFormLocalDatabase();
+    return response.fold((failure) {
+      emit(LoadDragonDataToLocalErrorState(error: failure.errMessage));
+      return [];
+    }, (dragons) {
+      emit(LoadDragonDataToLocalSuccessState(dragons: dragons));
+      return dragons;
+    });
+  }
+
+  Future getAllDragons() async {
+    emit(GetDragonsLoadingState());
+    try {
+      final localDragonsData = await loadDragonDataFromLocal();
+
+      if (localDragonsData.isNotEmpty) {
+        dragonsLocal = localDragonsData;
+        emit(GetDragonsSuccessFromLocal(
+          dragons: dragonsLocal,
+        ));
+      } else {
+        var response = await dragonRepo.fetchDragons();
+
+        response.fold((failure) {
+          emit(GetDragonsErrorState(failure.errMessage));
+        }, (dragons) async {
+          dragonsLocal = dragons;
+          await saveDragonDataToLocal(dragons);
+          emit(GetDragonsSuccessState(dragons));
+        });
+      }
+    } catch (e) {
+      GetDragonsErrorState(e.toString());
+    }
   }
 }

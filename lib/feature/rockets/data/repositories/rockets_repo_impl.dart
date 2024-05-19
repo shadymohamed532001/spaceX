@@ -31,17 +31,16 @@ class RocketRepoImpl implements RocketRepo {
   }
 
   @override
-  Future<Either<Failure, bool>> saveRocketsToLocalDatabase(
-      List<RocketModel> rockets) async {
+  Future<Either<Failure, List<RocketModel>>> saveRocketsToLocalDatabase(
+      List<RocketModel> dragons) async {
     try {
-      final rocketListJson = rockets.map((rocket) => rocket.toJson()).toList();
-      await LocalServices.saveData(key: 'rockets', value: rocketListJson);
-      return const Right(true);
+      await LocalServices.saveModelToLocalDatabase('rockets', dragons);
+      return Right(dragons);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
+        return Left(ServerFailure.fromDioException(e));
       } else {
-        return left(ServerFailure(e.toString()));
+        return Left(ServerFailure(e.toString()));
       }
     }
   }
@@ -50,16 +49,12 @@ class RocketRepoImpl implements RocketRepo {
   Future<Either<Failure, List<RocketModel>>>
       getRocketsFormLocalDatabase() async {
     try {
-      List<RocketModel> rockets = await LocalServices.getModel(
-        key: 'Rockets',
-      );
-      return Right(rockets);
+      List<RocketModel> dragons =
+          await LocalServices.getModelFromLocalDatabase<RocketModel>(
+              'rockets', (data) => RocketModel.fromJson(data));
+      return Right(dragons);
     } catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
-      } else {
-        return left(ServerFailure(e.toString()));
-      }
+      return Left(ServerFailure(e.toString()));
     }
   }
 }
