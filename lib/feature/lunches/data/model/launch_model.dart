@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 class Patch {
   String? small;
   String? large;
@@ -8,8 +6,8 @@ class Patch {
 
   factory Patch.fromJson(Map<String, dynamic> json) {
     return Patch(
-      small: json['small'],
-      large: json['large'],
+      small: json['small'] as String?,
+      large: json['large'] as String?,
     );
   }
 
@@ -53,17 +51,17 @@ class Links {
   factory Links.fromJson(Map<String, dynamic> json) {
     return Links(
       patch: json['patch'] != null ? Patch.fromJson(json['patch']) : null,
-      campaign: json['reddit']['campaign'],
-      launch: json['reddit']['launch'],
-      media: json['reddit']['media'],
-      recovery: json['reddit']['recovery'],
-      flickrSmall: json['flickr']['small'],
-      flickrOriginal: json['flickr']['original'],
+      campaign: json['reddit']?['campaign'],
+      launch: json['reddit']?['launch'],
+      media: json['reddit']?['media'],
+      recovery: json['reddit']?['recovery'],
+      flickrSmall: json['flickr']?['small'] as List<dynamic>?,
+      flickrOriginal: json['flickr']?['original'] as List<dynamic>?,
       presskit: json['presskit'],
-      webcast: json['webcast'],
-      youtubeId: json['youtube_id'],
-      article: json['article'],
-      wikipedia: json['wikipedia'],
+      webcast: json['webcast'] as String?,
+      youtubeId: json['youtube_id'] as String?,
+      article: json['article'] as String?,
+      wikipedia: json['wikipedia'] as String?,
     );
   }
 
@@ -89,37 +87,11 @@ class Links {
   }
 }
 
-class Faiilure {
-  int? time;
-  dynamic altitude;
-  String? reason;
-
-  Faiilure({this.time, this.altitude, this.reason});
-
-  factory Faiilure.fromJson(Map<String, dynamic> json) {
-    return Faiilure(
-      time: json['time'],
-      altitude: json['altitude'],
-      reason: json['reason'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'time': time,
-      'altitude': altitude,
-      'reason': reason,
-    };
-  }
-}
-
 class LaunchModel {
   Links? links;
   DateTime? staticFireDateUtc;
   bool? success;
   String? details;
-  List<Faiilure>? failures;
-
   String? name;
   DateTime? dateUtc;
   String? dateLocal;
@@ -129,7 +101,6 @@ class LaunchModel {
     this.links,
     this.staticFireDateUtc,
     this.success,
-    this.failures,
     this.details,
     this.name,
     this.dateUtc,
@@ -140,16 +111,16 @@ class LaunchModel {
   factory LaunchModel.fromJson(Map<String, dynamic> json) {
     return LaunchModel(
       links: json['links'] != null ? Links.fromJson(json['links']) : null,
-      staticFireDateUtc: DateTime.parse(json['static_fire_date_utc']),
-      success: json['success'],
-      details: json['details'],
-      name: json['name'],
-      dateUtc: DateTime.parse(json['date_utc']),
-      dateLocal: json['date_local'],
-      autoUpdate: json['auto_update'],
-      failures: json['failures'] != null
-          ? (json['failures'] as List).map((i) => Faiilure.fromJson(i)).toList()
+      staticFireDateUtc: json['static_fire_date_utc'] != null
+          ? DateTime.parse(json['static_fire_date_utc'])
           : null,
+      success: json['success'] as bool?,
+      details: json['details'] ?? 'No details available',
+      name: json['name'] as String?,
+      dateUtc:
+          json['date_utc'] != null ? DateTime.parse(json['date_utc']) : null,
+      dateLocal: json['date_local'] as String?,
+      autoUpdate: json['auto_update'] as bool?,
     );
   }
 
@@ -162,7 +133,6 @@ class LaunchModel {
       'name': name,
       'date_utc': dateUtc?.toIso8601String(),
       'date_local': dateLocal,
-      'failures': failures?.map((i) => i.toJson()).toList(),
       'auto_update': autoUpdate,
     };
   }

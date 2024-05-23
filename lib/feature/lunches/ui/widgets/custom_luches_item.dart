@@ -1,12 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
 import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/core/theming/colors.dart';
+import 'package:spacex/core/theming/image_assets.dart';
 import 'package:spacex/core/theming/styles.dart';
+import 'package:spacex/feature/lunches/data/model/launch_model.dart';
 
 class CustomLuchesItem extends StatelessWidget {
-  const CustomLuchesItem({super.key});
+  const CustomLuchesItem({super.key, required this.lauches});
+  final LaunchModel lauches;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class CustomLuchesItem extends StatelessWidget {
         child: Row(
           children: [
             CachedNetworkImage(
-              imageUrl: 'https://images2.imgbox.com/73/7f/u7BKqv2C_o.png',
+              imageUrl: lauches.links!.patch!.small!,
               height: 130,
               width: 130,
               fit: BoxFit.contain,
@@ -37,29 +41,37 @@ class CustomLuchesItem extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          'DemoSat',
-                          style: AppStyle.font18Whitesemibold,
+                        Expanded(
+                          child: Text(
+                            lauches.name!,
+                            style: AppStyle.font14Whitesemibold,
+                            maxLines: 2,
+                          ),
                         ),
                         const Spacer(),
-                        Image.asset(
-                          'assets/images/iconscheck.png',
-                          height: 25,
-                        )
+                        lauches.success == true
+                            ? Image.asset(
+                                ImagesAssetsManager.check,
+                                height: 25,
+                              )
+                            : Image.asset(
+                                ImagesAssetsManager.cancel,
+                                height: 25,
+                              ),
                       ],
                     ),
                     const SizedBox(
                       height: 8,
                     ),
                     Text(
-                      '2007-03-21T13:10:00+12:00',
+                      lauches.dateUtc.toString(),
                       style: AppStyle.font13Greysemibold,
                     ),
                     const SizedBox(
                       height: 2,
                     ),
                     Text(
-                      'Successful first stage burn and transition to second stage, maximum altitude 289 km, Premature engine shutdown at T+7 min 30 s, Failed to reach orbit, Failed to recover first stage',
+                      lauches.details!,
                       maxLines: 2,
                       style: AppStyle.font13Greysemibold,
                     ),

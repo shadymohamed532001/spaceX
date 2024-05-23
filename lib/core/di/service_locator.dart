@@ -5,6 +5,9 @@ import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo_impl.dart';
 import 'package:spacex/feature/layout/logic/layout_cubit.dart';
+import 'package:spacex/feature/lunches/data/repositories/luches_repo.dart';
+import 'package:spacex/feature/lunches/data/repositories/luches_repo_impl.dart';
+import 'package:spacex/feature/lunches/logic/lauches_cubit.dart';
 import 'package:spacex/feature/rockets/data/repositories/rockets_repo.dart';
 import 'package:spacex/feature/rockets/data/repositories/rockets_repo_impl.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
@@ -24,14 +27,21 @@ class ServiceLocator {
     serviceLocator.registerLazySingleton<RocketRepo>(() => RocketRepoImpl());
 
     serviceLocator.registerLazySingleton<DragonRepo>(() => DragonRepoImpl());
+
+    serviceLocator.registerLazySingleton<LuchesRepo>(() => LuchesRepoImpl());
   }
 
   void _setupForCubits() {
     serviceLocator.registerFactory<LayoutCubit>(
         () => LayoutCubit(layOutRepo: serviceLocator.get<LayOutRepo>()));
+
     serviceLocator.registerFactory<RocketsCubit>(
         () => RocketsCubit(rocketRepo: serviceLocator.get<RocketRepo>()));
+
     serviceLocator.registerFactory<GetDragonsCubit>(
         () => GetDragonsCubit(dragonRepo: serviceLocator.get<DragonRepo>()));
+
+    serviceLocator.registerFactory<LauchesCubit>(
+        () => LauchesCubit(luchesRepo: serviceLocator.get<LuchesRepo>()));
   }
 }

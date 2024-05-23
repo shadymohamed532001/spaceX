@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/image_assets.dart';
 import 'package:spacex/core/theming/styles.dart';
@@ -145,7 +145,7 @@ class _LuchesBottomSheetState extends State<LuchesBottomSheet> {
                           controller: _controller,
                           showVideoProgressIndicator: false,
                           onReady: () {
-                            print('Player is ready.');
+                            log('Player is ready.');
                           },
                         ),
                       ),
