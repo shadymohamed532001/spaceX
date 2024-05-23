@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../data/models/DragonModel.dart';
+import '../../data/models/dragonModel.dart';
 import 'custom_properties_row.dart';
 
 class DragonInfoSection extends StatelessWidget {

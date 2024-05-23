@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:spacex/core/helpers/local_services.dart';
 import 'package:spacex/core/networking/end_boint.dart';
 import 'package:spacex/core/networking/failuer.dart';
-import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
+import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 
 import '../../../../core/networking/api_services.dart';
 import '../../../../core/networking/servier_failure.dart';

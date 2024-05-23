@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
+import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 
 import '../../data/repositories/dragon_repo.dart';
 

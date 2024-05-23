@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/core/di/service_locator.dart';
 import 'package:spacex/core/routing/routes.dart';
 import 'package:spacex/core/theming/styles.dart';
-import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
+import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 import 'package:spacex/feature/dragons/ui/views/dragon_screen_details.dart';
 import 'package:spacex/feature/layout/logic/layout_cubit.dart';
 import 'package:spacex/feature/layout/ui/views/layout_screan.dart';
+import 'package:spacex/feature/lunches/ui/views/luches_screen_details.dart';
 import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 import 'package:spacex/feature/rockets/ui/views/reocket_screan_details.dart';
 
@@ -35,6 +36,10 @@ class AppRoutes {
           builder: (context) => DragonDetailsScreen(
             dragonModel: routeSettings.arguments as DragonModel,
           ),
+        );
+      case Routes.launcheScreenDetailsRoute:
+        return MaterialPageRoute(
+          builder: (context) => const LunchesScreenDetails(),
         );
 
       default:

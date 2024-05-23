@@ -1,5 +1,7 @@
+// ignore_for_file: file_names
+
 import 'TrunkVolume.dart';
-import 'Cargo.dart';
+import 'cargo.dart';
 
 class Trunk {
   Trunk({

@@ -5,7 +5,7 @@ import 'package:spacex/core/helpers/spacing.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/styles.dart';
 import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
-import 'package:spacex/feature/rockets/ui/widgets/custom_rocket_detials_row.dart';
+import 'package:spacex/feature/lunches/ui/widgets/custom_detials_row.dart';
 import 'package:spacex/feature/rockets/ui/widgets/discrption_widgets.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rocket_info_details.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rocket_name_and_setting.dart';
@@ -74,19 +74,19 @@ class RocketDetailBottomSheet extends StatelessWidget {
               ),
             ),
             verticalSpacing(20),
-            CustomRocketDetialsRow(
+            CustomDetialsRow(
               title: 'Company',
               subtitle: rocketModel.company,
             ),
-            CustomRocketDetialsRow(
+            CustomDetialsRow(
               title: 'Country',
               subtitle: rocketModel.country,
             ),
-            CustomRocketDetialsRow(
+            CustomDetialsRow(
               title: 'First Flight',
               subtitle: rocketModel.firstflight,
             ),
-            CustomRocketDetialsRow(
+            CustomDetialsRow(
               title: 'Name',
               subtitle: rocketModel.name,
             ),

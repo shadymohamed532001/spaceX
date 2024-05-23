@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
+import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 
 import '../../../../core/networking/failuer.dart';
 

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'HeatShield.dart';
 import 'LaunchPayloadMass.dart';
 import 'LaunchPayloadVol.dart';
@@ -6,7 +8,7 @@ import 'ReturnPayloadVol.dart';
 import 'PressurizedCapsule.dart';
 import 'Trunk.dart';
 import 'HeightWTrunk.dart';
-import 'Diameter.dart';
+import 'diameter.dart';
 import 'Thrusters.dart';
 
 class DragonModel {
