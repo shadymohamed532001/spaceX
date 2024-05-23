@@ -36,13 +36,8 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
     │   ├── app_widget.dart
     └── └── main.dart
 ## Preview
-
-
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://github.com/shadymohamed532001/spaceX/assets/126605393/98452e40-fcaf-41fd-807f-729e9970d2f8" alt="Logo" width="700" height="700">
-  </a>  
+  
+![spaceX_phone](https://github.com/shadymohamed532001/spaceX/assets/126605393/d51025db-dbe6-4125-b0d9-8262cdb74197)
 
 
 <div align="start">
@@ -83,7 +78,7 @@ We welcome contributions to SpaceX. To contribute, please follow these steps:
 
 
 
-
-
-
+|                                                   Crew Home                                                  |Crew Photo |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/8cc6f9a6-7579-439a-9b02-e7091a2728a2"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/5da09f96-18e8-4d58-9ed9-2ced50c76f5b">      | 
 
