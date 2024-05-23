@@ -152,20 +152,28 @@ class _LuchesBottomSheetState extends State<LuchesBottomSheet> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        'Video Description of DemoSat Launch',
-                        style:
-                            AppStyle.font10WhiteRegular.copyWith(fontSize: 13),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Text(
+                          'Video Description of DemoSat Launch',
+                          style: AppStyle.font10WhiteRegular
+                              .copyWith(fontSize: 13),
+                        ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      CustomBottom(
-                        bottomtext: 'Play Video',
-                        onPressed: () {
-                          _playVideo();
-                        },
-                        backgroundColor: Colors.transparent,
+                      Center(
+                        child: CustomBottom(
+                          bottomWidth: MediaQuery.of(context).size.width * 0.88,
+                          bottomHeight:
+                              MediaQuery.of(context).size.width * 0.12,
+                          bottomtext: 'Play Video',
+                          onPressed: () {
+                            _playVideo();
+                          },
+                          backgroundColor: Colors.transparent,
+                        ),
                       )
                     ],
                   ),
