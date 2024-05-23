@@ -7,6 +7,7 @@ import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 import 'package:spacex/feature/dragons/ui/views/dragon_screen_details.dart';
 import 'package:spacex/feature/layout/logic/layout_cubit.dart';
 import 'package:spacex/feature/layout/ui/views/layout_screan.dart';
+import 'package:spacex/feature/lunches/data/model/launch_model.dart';
 import 'package:spacex/feature/lunches/ui/views/luches_screen_details.dart';
 import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 import 'package:spacex/feature/rockets/ui/views/reocket_screan_details.dart';
@@ -39,7 +40,9 @@ class AppRoutes {
         );
       case Routes.launcheScreenDetailsRoute:
         return MaterialPageRoute(
-          builder: (context) => const LunchesScreenDetails(),
+          builder: (context) => LunchesScreenDetails(
+            lauchesModel: routeSettings.arguments as LaunchModel,
+          ),
         );
 
       default:

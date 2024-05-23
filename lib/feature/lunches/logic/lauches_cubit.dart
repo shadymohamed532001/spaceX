@@ -41,8 +41,7 @@ class LauchesCubit extends Cubit<LauchesState> {
 
       if (localLaunchData.isNotEmpty) {
         lauchesLocal = localLaunchData;
-        print(lauchesLocal[0].links);
-        print(lauchesLocal[0].autoUpdate);
+    
         emit(GetLauchessSuccess(
           lauches: localLaunchData,
         ));
@@ -50,14 +49,12 @@ class LauchesCubit extends Cubit<LauchesState> {
         var response = await luchesRepo.getLunches();
 
         response.fold((failure) {
-          print(failure.errMessage);
           emit(GetLauchessError(
             error: failure.errMessage,
           ));
         }, (lauches) async {
           lauchesLocal = lauches;
-          print(lauches[0].links);
-          print(lauches[0].links!.patch!.small!);
+      
           await saveLauchessDataToLocal(lauches);
           emit(GetLauchessSuccess(lauches: lauches));
         });

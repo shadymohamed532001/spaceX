@@ -16,7 +16,8 @@ class CustomLuchesItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.navigateTo(routeName: Routes.launcheScreenDetailsRoute);
+        context.navigateTo(
+            routeName: Routes.launcheScreenDetailsRoute, arguments: lauches);
       },
       child: Container(
         padding: const EdgeInsets.all(16),
