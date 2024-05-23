@@ -51,35 +51,3 @@ class LunchesScreenBody extends StatelessWidget {
     );
   }
 }
-// }
-// if (state is GetRocketsSuccess || state is GetRocketsSuccessFromLocal) {
-//           return Padding(
-//             padding: EdgeInsets.only(
-//               left: 16.w,
-//               right: 16.w,
-//             ),
-//             child: Column(
-//               children: [
-//                 Expanded(
-//                   child: ListView.builder(
-//                     itemCount: cubit.rocketsLocal.length,
-//                     itemBuilder: (context, index) {
-//                       return RocketLauncherItem(
-//                         rocketModel: cubit.rocketsLocal[index],
-//                         onTap: () {
-//                           context.navigateTo(
-//                               routeName: Routes.rocketScreenDetailsRoute,
-//                               arguments: cubit.rocketsLocal[index]);
-//                         },
-//                       );
-//                     },
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           );
-//         } else {
-//           return const Center(
-//             child: Text('Something went wrong'),
-//           );
-//         }

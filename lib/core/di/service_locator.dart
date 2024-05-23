@@ -1,4 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:spacex/feature/crew/data/repositories/crew_repo.dart';
+import 'package:spacex/feature/crew/data/repositories/crew_repo_impl.dart';
+import 'package:spacex/feature/crew/logic/crew_cubit.dart';
 import 'package:spacex/feature/dragons/data/repositories/dragon_repo.dart';
 import 'package:spacex/feature/dragons/data/repositories/dragon_repo_impl.dart';
 import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
@@ -29,6 +32,8 @@ class ServiceLocator {
     serviceLocator.registerLazySingleton<DragonRepo>(() => DragonRepoImpl());
 
     serviceLocator.registerLazySingleton<LuchesRepo>(() => LuchesRepoImpl());
+
+    serviceLocator.registerLazySingleton<CrewRepo>(() => CrewRepoImpl());
   }
 
   void _setupForCubits() {
@@ -43,5 +48,8 @@ class ServiceLocator {
 
     serviceLocator.registerFactory<LauchesCubit>(
         () => LauchesCubit(luchesRepo: serviceLocator.get<LuchesRepo>()));
+
+    serviceLocator.registerFactory<CrewCubit>(
+        () => CrewCubit(crewRepo: serviceLocator.get<CrewRepo>()));
   }
 }

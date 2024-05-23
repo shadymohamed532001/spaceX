@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:spacex/feature/crew/ui/views/crew_screen.dart';
 import 'package:spacex/feature/dragons/ui/views/dragons_screen.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
@@ -24,19 +27,20 @@ class LayoutRepoImpl extends LayOutRepo {
       LunchesScreen(),
       RocketScreen(),
       DragonsScreen(),
+      CrewScreen()
     ];
   }
 
   @override
   List<BottomNavigationBarItem> getBottomNavItems() {
-    return const <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
+    return <BottomNavigationBarItem>[
+      const BottomNavigationBarItem(
         icon: Icon(
           Icons.rocket_launch,
         ),
         label: 'Lunches',
       ),
-      BottomNavigationBarItem(
+      const BottomNavigationBarItem(
         icon: Icon(
           Icons.rocket,
         ),
@@ -44,8 +48,15 @@ class LayoutRepoImpl extends LayOutRepo {
       ),
       BottomNavigationBarItem(
         label: 'Dragons',
+        icon: SvgPicture.asset(
+          'assets/images/dragon_icon.svg',
+          height: 22,
+        ),
+      ),
+      const BottomNavigationBarItem(
+        label: 'Crew',
         icon: Icon(
-          Icons.travel_explore,
+          Iconsax.people,
         ),
       ),
     ];

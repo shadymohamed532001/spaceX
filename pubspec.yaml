@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   flutter_native_splash: ^2.4.0
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
   get_it: ^7.7.0
   iconsax: ^0.0.8
   shared_preferences: ^2.2.3

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacex/feature/crew/logic/crew_cubit.dart';
 import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
@@ -44,6 +45,10 @@ class LayoutCubit extends Cubit<LayoutState> {
     }
     if (currentIndex == 2) {
       BlocProvider.of<GetDragonsCubit>(context).getAllDragons();
+    }
+
+    if (currentIndex == 3) {
+      BlocProvider.of<CrewCubit>(context).getCrews();
     }
     emit(ChangeBottomNavState(index: index));
   }
