@@ -21,6 +21,7 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
     │   │   ├── dragons
     │   │   ├── layout
     │   │   ├── launches
+    │   │   ├── Crew
     │   │   ├── rockets
     │   ├── core
     │   │   ├── Di
@@ -77,8 +78,9 @@ We welcome contributions to SpaceX. To contribute, please follow these steps:
 | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/0da27a9a-ebb2-4f30-8250-1b7755d279cf"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/ecd52771-3d8e-46c8-98f3-07e586911039">      | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/42bb5e1a-07c4-452c-8491-4704d31f85c8">      |
 
 
+![crew]()
 
 |                                                   Crew Home                                                  |Crew Photo |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/8cc6f9a6-7579-439a-9b02-e7091a2728a2"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/5da09f96-18e8-4d58-9ed9-2ced50c76f5b">      | 
+| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/348b0387-49c0-4f89-bf99-708cad23c342"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/5da09f96-18e8-4d58-9ed9-2ced50c76f5b">      | 
 
