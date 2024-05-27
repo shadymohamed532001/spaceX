@@ -17,4 +17,9 @@ class ImagesAssetsManager {
 
 
   static const String check = 'assets/images/iconscheck.png';
+
+  static const String moon = 'assets/images/moon.png';
+
+
+  static const String rocket = 'assets/images/recoket.png';
 }

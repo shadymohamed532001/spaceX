@@ -17,6 +17,11 @@ class AppStyle {
     color: ColorManger.greyColor.withOpacity(0.6),
     fontSize: 15.sp,
   );
+  static TextStyle font16GreyMedium = TextStyle(
+    color: ColorManger.greyColor.withOpacity(0.6),
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font13Greysemibold = TextStyle(
     color: ColorManger.greyColor.withOpacity(0.6),
     fontSize: 13.sp,
@@ -27,6 +32,11 @@ class AppStyle {
   static TextStyle font14Whitesemibold = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.semibold,
+    color: ColorManger.whiteColor,
+  );
+  static TextStyle font28Whitebold = TextStyle(
+    fontSize: 28.sp,
+    fontWeight: FontWeightHelper.bold,
     color: ColorManger.whiteColor,
   );
   static TextStyle font18Whitesemibold = TextStyle(

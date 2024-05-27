@@ -11,6 +11,9 @@ import 'package:spacex/feature/layout/logic/layout_cubit.dart';
 import 'package:spacex/feature/lunches/data/repositories/luches_repo.dart';
 import 'package:spacex/feature/lunches/data/repositories/luches_repo_impl.dart';
 import 'package:spacex/feature/lunches/logic/lauches_cubit.dart';
+import 'package:spacex/feature/onbording/data/repositories/onbording_repo.dart';
+import 'package:spacex/feature/onbording/data/repositories/onbording_repo_impl.dart';
+import 'package:spacex/feature/onbording/logic/cubit/onbording_cubit.dart';
 import 'package:spacex/feature/rockets/data/repositories/rockets_repo.dart';
 import 'package:spacex/feature/rockets/data/repositories/rockets_repo_impl.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
@@ -34,11 +37,16 @@ class ServiceLocator {
     serviceLocator.registerLazySingleton<LuchesRepo>(() => LuchesRepoImpl());
 
     serviceLocator.registerLazySingleton<CrewRepo>(() => CrewRepoImpl());
+
+    serviceLocator
+        .registerLazySingleton<OnBoardingRepo>(() => OnBoardingRepoImpl());
   }
 
   void _setupForCubits() {
     serviceLocator.registerFactory<LayoutCubit>(
         () => LayoutCubit(layOutRepo: serviceLocator.get<LayOutRepo>()));
+    serviceLocator.registerFactory<OnbordingCubit>(() =>
+        OnbordingCubit(onBoardingRepo: serviceLocator.get<OnBoardingRepo>()));
 
     serviceLocator.registerFactory<RocketsCubit>(
         () => RocketsCubit(rocketRepo: serviceLocator.get<RocketRepo>()));
