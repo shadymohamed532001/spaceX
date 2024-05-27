@@ -9,7 +9,7 @@
 
 <div align="start">
   
-# SpaceX App
+# SpaceX App 🚀 
 
 The SpaceX app offers comprehensive details about the company's missions, rockets, and spacecraft, including live launch streams, real-time updates, mission schedules, technical specifications, and educational content, all within an intuitive and user-friendly interface
 
