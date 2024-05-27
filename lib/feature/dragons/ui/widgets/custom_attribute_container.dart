@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:spacex/core/theming/styles.dart';
 
 class CustomAttributesContainer extends StatelessWidget {

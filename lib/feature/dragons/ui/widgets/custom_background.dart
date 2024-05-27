@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/colors.dart';
 
-import '../../data/models/DragonModel.dart';
+import '../../data/models/dragonModel.dart';
 
 class CustomBackground extends StatelessWidget {
   const CustomBackground({

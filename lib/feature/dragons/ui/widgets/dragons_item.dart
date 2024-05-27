@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spacex/core/helpers/naviagtion_extentaions.dart';
 import 'package:spacex/core/routing/routes.dart';
+import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/styles.dart';
 
-import '../../data/models/DragonModel.dart';
+import '../../data/models/dragonModel.dart';
 
 class DragonsItem extends StatelessWidget {
   const DragonsItem({super.key, this.dragons, required this.index});
@@ -17,7 +18,8 @@ class DragonsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.navigateTo(routeName: Routes.dragonScreenDetailsRoute, arguments: dragons);
+        context.navigateTo(
+            routeName: Routes.dragonScreenDetailsRoute, arguments: dragons);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 7.h),
@@ -25,8 +27,9 @@ class DragonsItem extends StatelessWidget {
           height: 120.h,
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25.r),
-              color: Colors.grey.shade900),
+            borderRadius: BorderRadius.circular(25.r),
+            color: ColorManger.greyColor.withOpacity(0.2),
+          ),
           child: Row(
             children: [
               Padding(

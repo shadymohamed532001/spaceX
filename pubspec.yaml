@@ -28,19 +28,24 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animate_do: ^3.3.4
   cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   dio: ^5.4.3+1
   equatable: ^2.0.5
+  firebase_core: ^2.31.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
   flutter_native_splash: ^2.4.0
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
   get_it: ^7.7.0
   iconsax: ^0.0.8
   shared_preferences: ^2.2.3
+  url_launcher: ^6.2.6
+  youtube_player_flutter: ^9.0.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0

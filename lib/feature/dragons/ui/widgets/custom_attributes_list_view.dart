@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/models/DragonModel.dart';
+import '../../data/models/dragonModel.dart';
 import 'custom_attribute_container.dart';
 
 class CustomAttributesListView extends StatelessWidget {
