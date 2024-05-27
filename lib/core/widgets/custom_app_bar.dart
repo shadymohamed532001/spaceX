@@ -5,8 +5,9 @@ import 'package:spacex/core/theming/styles.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -20,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Text(
-        'Launches',
+        title,
         style: AppStyle.font18Whitesemibold,
       ),
       centerTitle: true,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex/feature/rockets/data/model/reocket_model.dart';
 import 'package:spacex/feature/rockets/ui/widgets/rocket_details_bottom_sheet.dart';
@@ -13,8 +14,8 @@ class RocketScreenDetails extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Column(
         children: [
-          Image.network(
-            rocketModel.flickrImages[0].toString(),
+          CachedNetworkImage(
+            imageUrl: rocketModel.flickrImages[0].toString(),
             height: MediaQuery.of(context).size.height * 0.42,
             width: double.infinity,
             fit: BoxFit.fill,

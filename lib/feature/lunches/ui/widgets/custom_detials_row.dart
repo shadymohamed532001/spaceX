@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/styles.dart';
 
-class CustomRocketDetialsRow extends StatelessWidget {
-  const CustomRocketDetialsRow({
+class CustomDetialsRow extends StatelessWidget {
+  const CustomDetialsRow({
     super.key,
     required this.subtitle,
     required this.title,

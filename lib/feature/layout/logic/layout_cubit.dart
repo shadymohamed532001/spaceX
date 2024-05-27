@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
 import 'package:spacex/feature/layout/data/models/change_index_params.dart';
 import 'package:spacex/feature/layout/data/repositories/layout_repo.dart';
+import 'package:spacex/feature/lunches/logic/lauches_cubit.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
 part 'layout_state.dart';
 
@@ -34,14 +35,15 @@ class LayoutCubit extends Cubit<LayoutState> {
       ),
     );
 
-    if (currentIndex == 0) {}
+    if (currentIndex == 0) {
+      BlocProvider.of<LauchesCubit>(context).getLauchess();
+    }
 
     if (currentIndex == 1) {
       BlocProvider.of<RocketsCubit>(context).getRockets();
     }
     if (currentIndex == 2) {
-            BlocProvider.of<GetDragonsCubit>(context).getAllDragons();
-
+      BlocProvider.of<GetDragonsCubit>(context).getAllDragons();
     }
     emit(ChangeBottomNavState(index: index));
   }

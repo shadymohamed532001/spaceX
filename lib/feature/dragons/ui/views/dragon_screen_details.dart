@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spacex/core/theming/colors.dart';
 import 'package:spacex/core/theming/styles.dart';
-import 'package:spacex/feature/dragons/data/models/DragonModel.dart';
+import 'package:spacex/feature/dragons/data/models/dragonModel.dart';
 import 'package:spacex/feature/dragons/ui/widgets/dragon_info_section.dart';
 
 import '../widgets/custom_attributes_list_view.dart';
