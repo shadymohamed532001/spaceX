@@ -82,7 +82,7 @@ class _LuchesBottomSheetState extends State<LuchesBottomSheet> {
               ),
               CustomDetialsRow(
                 title: 'success',
-                subtitle: widget.launchMode.autoUpdate!.toString(),
+                subtitle: widget.launchMode.success!.toString(),
               ),
               const SizedBox(
                 height: 10,

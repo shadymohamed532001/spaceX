@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spacex/core/di/service_locator.dart';
 import 'package:spacex/core/routing/app_routes.dart';
 import 'package:spacex/core/theming/colors.dart';
+import 'package:spacex/feature/crew/logic/crew_cubit.dart';
 import 'package:spacex/feature/dragons/logic/get_dragons_cubit/get_dragons_cubit.dart';
 import 'package:spacex/feature/lunches/logic/lauches_cubit.dart';
 import 'package:spacex/feature/rockets/logic/cubit/rockets_cubit.dart';
@@ -25,6 +26,9 @@ class SpceXApp extends StatelessWidget {
         ),
         BlocProvider<LauchesCubit>(
           create: (BuildContext context) => serviceLocator.get<LauchesCubit>(),
+        ),
+        BlocProvider<CrewCubit>(
+          create: (BuildContext context) => serviceLocator.get<CrewCubit>(),
         ),
       ],
       child: ScreenUtilInit(
