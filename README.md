@@ -9,7 +9,7 @@
 
 <div align="start">
   
-# SpaceX App
+# SpaceX App 🚀 
 
 The SpaceX app offers comprehensive details about the company's missions, rockets, and spacecraft, including live launch streams, real-time updates, mission schedules, technical specifications, and educational content, all within an intuitive and user-friendly interface
 
@@ -21,6 +21,7 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
     │   │   ├── dragons
     │   │   ├── layout
     │   │   ├── launches
+    │   │   ├── Crew
     │   │   ├── rockets
     │   ├── core
     │   │   ├── Di
@@ -36,13 +37,8 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
     │   ├── app_widget.dart
     └── └── main.dart
 ## Preview
-
-
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://github.com/shadymohamed532001/spaceX/assets/126605393/98452e40-fcaf-41fd-807f-729e9970d2f8" alt="Logo" width="700" height="700">
-  </a>  
+  
+![spaceX_phone](https://github.com/shadymohamed532001/spaceX/assets/126605393/d51025db-dbe6-4125-b0d9-8262cdb74197)
 
 
 <div align="start">
@@ -73,13 +69,15 @@ We welcome contributions to SpaceX. To contribute, please follow these steps:
 | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/1318bf7b-21b5-4f14-ad3f-1fdfc3e8095a"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/39b40315-83e3-48f9-abb2-36e7b7cb83b5">      | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/abe1f5db-b251-41f5-bb44-01c419f6ccf5"> |
 
 
-|                                                    Dragoin Home                                                  | Dragoin Details |
+|                                                    Launches Home                                                 |    Launches Details  |  Launches Wikipedia
+| :---------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/bd9ffcf6-ec3b-4c95-9ea1-8744c9d016b0"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/0a02bd58-b11c-43e4-abe0-a59e1bae921e">      | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/157a1ce0-52cb-4d97-b0ed-1b313466683a"> |
+
+|                                                    Dragoin Home                                                  | Dragoin Details |Lunches Article|
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |------------------------------------------------------------------------------------------------------- |
+| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/0da27a9a-ebb2-4f30-8250-1b7755d279cf"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/ecd52771-3d8e-46c8-98f3-07e586911039">      | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/42bb5e1a-07c4-452c-8491-4704d31f85c8">      |
+
+|                                                   Crew Home                                                  |Crew Photo |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/0da27a9a-ebb2-4f30-8250-1b7755d279cf"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/ecd52771-3d8e-46c8-98f3-07e586911039">      |
-
-
-
-
-
-
+| <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/348b0387-49c0-4f89-bf99-708cad23c342"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/5da09f96-18e8-4d58-9ed9-2ced50c76f5b">      | 
 
