@@ -64,6 +64,10 @@ We welcome contributions to SpaceX. To contribute, please follow these steps:
 - Push your changes to the new branch on your forked repository.
 - Submit a pull request to the original repository.
 
+## App Video
+
+https://www.linkedin.com/posts/shady-steha-182311230_%D8%A7%D9%84%D8%AD%D9%85%D8%AF%D9%84%D9%84%D9%87-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%86%D8%AA%D9%87%D8%A7%D8%A1-%D8%A7%D9%84mentorship-%D8%AD%D8%A7%D8%A8%D8%A8-%D8%A7%D8%B4%D9%83%D8%B1-activity-7201306149210566656-HNpA?utm_source=share&utm_medium=member_desktop
+
 |                                                    splash                                                     | Rockets Home | Rocket Details 
 | :---------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/1318bf7b-21b5-4f14-ad3f-1fdfc3e8095a"> |     <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/39b40315-83e3-48f9-abb2-36e7b7cb83b5">      | <img width="351" src="https://github.com/shadymohamed532001/spaceX/assets/126605393/abe1f5db-b251-41f5-bb44-01c419f6ccf5"> |
