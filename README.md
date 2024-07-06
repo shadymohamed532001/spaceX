@@ -37,6 +37,8 @@ The SpaceX app offers comprehensive details about the company's missions, rocket
     │   ├── app_widget.dart
     └── └── main.dart
 ## Preview
+
+[Click here to see the video of the app](https://www.linkedin.com/posts/shady-steha-182311230_%D8%A7%D9%84%D8%AD%D9%85%D8%AF%D9%84%D9%84%D9%87-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%86%D8%AA%D9%87%D8%A7%D8%A1-%D8%A7%D9%84mentorship-%D8%AD%D8%A7%D8%A8%D8%A8-%D8%A7%D8%B4%D9%83%D8%B1-activity-7201306149210566656-HNpA/?utm_source=share&utm_medium=member_desktop)
   
 ![spaceX_phone](https://github.com/shadymohamed532001/spaceX/assets/126605393/d51025db-dbe6-4125-b0d9-8262cdb74197)
 
